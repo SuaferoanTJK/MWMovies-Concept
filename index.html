@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>MW Movies</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+		<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="css/swiper.min.css">
+		<link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" href="css/responsive.css">
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script src="js/swiper.min.js"></script>
+		<script src="js/script.js"></script>
+		<script src="https://d3js.org/d3.v6.min.js"></script>
+		<script src="dataset.js"></script>
+		<link rel="icon" type="image/png" href="img/MW.png">
+	</head>
+	<body>
+		<div class="loader_bg">
+			<div class="loader"></div>
+		</div>
+
+		<div class="wrapper">
+			<!---Header--->
+			<header class="header">
+				<div class="LogoHeader">
+					<figure class="logo"><a onclick="setAndChange('option','none','aux','none');"><img src="img/logoMW.png" alt="LogoMWPeliculas"></figure></a>
+				</div>
+				<div class="InfoHeader">
+					<nav class="menu">
+						<ul>
+							<li id="Genre"><a>Genre</a>
+								<ul>
+									<li><a onclick="setAndChange('option','filter','aux','Action');">Action</a></li>
+									<li><a onclick="setAndChange('option','filter','aux','Adventure');">Adventure</a></li>
+									<li><a onclick="setAndChange('option','filter','aux','Animation');">Animation</a></li>
+									<li><a onclick="setAndChange('option','filter','aux','Children');">Children</a></li>
+									<li><a onclick="setAndChange('option','filter','aux','Comedy');">Comedy</a></li>
+									<li><a onclick="setAndChange('option','filter','aux','Crime');">Crime</a></li>
+									<li><a onclick="setAndChange('option','filter','aux','Documental');">Documental</a></li>
+									<li><a onclick="setAndChange('option','filter','aux','Drama');">Drama</a></li>
+									<li><a onclick="setAndChange('option','filter','aux','Fantasy');">Fantasy</a></li>
+									<li><a onclick="setAndChange('option','filter','aux','Film-Noir');">Film-Noir</a></li>
+									<li><a onclick="setAndChange('option','filter','aux','Horror');">Horror</a></li>
+									<li><a onclick="setAndChange('option','filter','aux','IMAX');">IMAX</a></li>
+									<li><a onclick="setAndChange('option','filter','aux','Mistery');">Mistery</a></li>
+									<li><a onclick="setAndChange('option','filter','aux','Musical');">Musical</a></li>
+									<li><a onclick="setAndChange('option','filter','aux','Romance');">Romance</a></li>
+									<li><a onclick="setAndChange('option','filter','aux','Sci-Fi');">Sci-Fi</a></li>
+									<li><a onclick="setAndChange('option','filter','aux','Thriller');">Thriller</a></li>
+									<li><a onclick="setAndChange('option','filter','aux','War');">War</a></li>
+									<li><a onclick="setAndChange('option','filter','aux','Western');">Western</a></li>
+									<li><a onclick="setAndChange('option','filter','aux','All');">All</a></li>
+								</ul>
+							</li>
+							<li id="Rank"><a onclick="setAndChange('option','top','aux','none');">Ranking</a></li>
+							<li class="mobsearch">
+								<form class="mobform" action="ranking.html"  onsubmit="setAndChange('option','names','aux',document.getElementById('filtrar-nombre-I').value);">
+									<input type="text" name="s"  id="filtrar-nombre-I" class="mobsearchfield" placeholder="Submit movie name">
+									<input type="submit" value="" class="mobsearchsubmit">
+								</form>
+							</li>
+						</ul>
+					</nav>
+					<form class="search" action="ranking.html" onsubmit="setAndChange('option','names','aux',document.getElementById('filtrar-nombre').value);" >
+						<input type="text" id="filtrar-nombre" name="s" class="searchfield" placeholder="Submit movie name">
+						<input type="submit"  value="" class="searchsubmit">
+					</form>
+					<div class="toggle"><img src="img/menu.svg"></div>
+				</div>
+			</header>
+			<!--Fin Header-->
+
+			<!-- Home Slider -->
+			<div class="homeslider">
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<img src="images/slider/poster1.jpg" alt="imgPoster1">
+							<div class="caption">
+								<div class="captioninside">
+									<h2>Air Force One (1997)</h2>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<img src="images/slider/poster2.jpg" alt="imgPoster2">
+							<div class="caption">
+								<div class="captioninside">
+									<h2>Dumbo (1941)</h2>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<img src="images/slider/poster3.jpg" alt="imgPoster3">
+							<div class="caption">
+								<div class="captioninside">
+									<h2>Grease (1978)</h2>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Flechas Slider -->
+					<div class="nextdirection home-next"><img class="flechas" src="img/arrowRight.png"></div>
+					<div class="leftdirection home-prev"><img class="flechas" src="img/arrowLeft.png"></div>
+					<!-- Circulos Slider -->
+					<div class="swiper-pagination"></div>
+				</div>
+			</div>
+			<!-- Fin Home Slider -->
+
+			<!-- Contenido -->
+ 			<main class="content">
+				<!-- Carrusel Géneros -->
+				<section class="panel">
+					<h2>Genre</h2>
+					<div class="recentslider">
+						<div class="swiper-container">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide GenreCarousel">
+									<img src="images/genre/Acción.png" alt="imgAcción">
+									<div class="genreTitle">
+										<a onclick="setAndChange('option','filter','aux','Action');">
+											<h3>Action</h3>
+										</a>
+									</div>
+								</div>
+								<div class="swiper-slide GenreCarousel">
+									<img src="images/genre/Aventura.png" alt="imgAventura">
+									<div class="genreTitle">
+										<a onclick="setAndChange('option','filter','aux','Adventure');">
+											<h3>Adventure</h3>
+										</a>
+									</div>
+								</div>
+								<div class="swiper-slide GenreCarousel">
+									<img src="images/genre/Animación.png" alt="imgAnimación">
+									<div class="genreTitle">
+										<a onclick="setAndChange('option','filter','aux','Animation');">
+											<h3>Animation</h3>
+										</a>
+									</div>
+								</div>
+								<div class="swiper-slide GenreCarousel">
+									<img src="images/genre/Niños.png" alt="imgNiños">
+									<div class="genreTitle">
+										<a onclick="setAndChange('option','filter','aux','Children');">
+											<h3>Children</h3>
+										</a>
+									</div>
+								</div>
+								<div class="swiper-slide GenreCarousel">
+									<img src="images/genre/Comedia.jpg" alt="imgComedia">
+									<div class="genreTitle">
+										<a onclick="setAndChange('option','filter','aux','Comedy');">
+											<h3>Comedy</h3>
+										</a>
+									</div>
+								</div>
+								<div class="swiper-slide GenreCarousel">
+									<img src="images/genre/Crimen.jpg" alt="imgCrimen">
+									<div class="genreTitle">
+										<a onclick="setAndChange('option','filter','aux','Crime');">
+											<h3>Crime</h3>
+										</a>
+									</div>
+								</div>
+								<div class="swiper-slide GenreCarousel">
+									<img src="images/genre/Documental.png" alt="imgDocumental">
+									<div class="genreTitle">
+										<a onclick="setAndChange('option','filter','aux','Documental');">
+											<h3>Documental</h3>
+										</a>
+									</div>
+								</div>
+								<div class="swiper-slide GenreCarousel">
+									<img src="images/genre/Drama.png" alt="imgDrama">
+									<div class="genreTitle">
+										<a onclick="setAndChange('option','filter','aux','Drama');">
+											<h3>Drama</h3>
+										</a>
+									</div>
+								</div>
+								<div class="swiper-slide GenreCarousel">
+									<img src="images/genre/Fantasia.png" alt="imgFantasía">
+									<div class="genreTitle">
+										<a onclick="setAndChange('option','filter','aux','Fantasy');">
+											<h3>Fantasy</h3>
+										</a>
+									</div>
+								</div>
+								<div class="swiper-slide GenreCarousel">
+									<img src="images/genre/FilmNoir.png" alt="imgFilm-Noir">
+									<div class="genreTitle">
+										<a onclick="setAndChange('option','filter','aux','Film-Noir');">
+											<h3>Film-Noir</h3>
+										</a>
+									</div>
+								</div>
+								<div class="swiper-slide GenreCarousel">
+									<img src="images/genre/Horror.png" alt="imgHorror">
+									<div class="genreTitle">
+										<a onclick="setAndChange('option','filter','aux','Horror');">
+											<h3>Horror</h3>
+										</a>
+									</div>
+								</div>
+								<div class="swiper-slide GenreCarousel">
+									<img src="images/genre/IMAX.png" alt="imgIMAX">
+									<div class="genreTitle">
+										<a onclick="setAndChange('option','filter','aux','IMAX');">
+											<h3>IMAX</h3>
+										</a>
+									</div>
+								</div>
+								<div class="swiper-slide GenreCarousel">
+									<img src="images/genre/Misterio.png" alt="imgMisterio">
+									<div class="genreTitle">
+										<a onclick="setAndChange('option','filter','aux','Mistery');">
+											<h3>Mistery</h3>
+										</a>
+									</div>
+								</div>
+								<div class="swiper-slide GenreCarousel">
+									<img src="images/genre/Musical.jpg" alt="imgMusical">
+									<div class="genreTitle">
+										<a onclick="setAndChange('option','filter','aux','Musical');">
+											<h3>Musical</h3>
+										</a>
+									</div>
+								</div>
+								<div class="swiper-slide GenreCarousel">
+									<img src="images/genre/Romance.jpg" alt="imgRomance">
+									<div class="genreTitle">
+										<a onclick="setAndChange('option','filter','aux','Romance');">
+											<h3>Romance</h3>
+										</a>
+									</div>
+								</div>
+								<div class="swiper-slide GenreCarousel">
+									<img src="images/genre/CienciaFiccion.png" alt="imgCF">
+									<div class="genreTitle">
+										<a onclick="setAndChange('option','filter','aux','Sci-Fi');">
+											<h3>Sci-Fi</h3>
+										</a>
+									</div>
+								</div>
+								<div class="swiper-slide GenreCarousel">
+									<img src="images/genre/Suspenso.png" alt="imgSuspenso">
+									<div class="genreTitle">
+										<a onclick="setAndChange('option','filter','aux','Thriller');">
+											<h3>Thriller</h3>
+										</a>
+									</div>
+								</div>
+								<div class="swiper-slide GenreCarousel">
+									<img src="images/genre/Guerra.jpg" alt="imgGuerra">
+									<div class="genreTitle">
+										<a onclick="setAndChange('option','filter','aux','War');">
+											<h3>War</h3>
+										</a>
+									</div>
+								</div>
+								<div class="swiper-slide GenreCarousel">
+									<img src="images/genre/Oeste.png" alt="imgOeste">
+									<div class="genreTitle">
+										<a onclick="setAndChange('option','filter','aux','Western');">
+											<h3>Western</h3>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-pagination"></div>
+						</div>
+					</div>
+				</section>
+				<!-- Fin Carrusel Géneros -->
+
+				<!-- Películas Top 6 -->
+				<section class="panel">
+					<h2 id="title-general">Top 6 Movies</h2>
+					<section class="centered">
+						<div id="movie-key" class="movies"></div>
+					</section>
+				</section>
+			</main>
+			<!-- Fin Contenido -->
+
+			<!-- Footer  -->
+			<footer class="footer">
+				<div class="copyright">
+					<p>Copyright &copy 2020</p>
+				</div>
+				<div class="footermenu">
+					<ul>
+						<li>
+							<a href="#">Contact Us</a>
+						</li>
+						<li>
+							<a href="#">Terms and Conditions</a>
+						</li>
+					</ul>
+				</div>
+				<div class="tags">
+					<ul>
+						<li>Danna Amaya Acosta</li>
+						<li>Jean Carlos Polo Castro</li>
+						<li>Nicolás Sierra Chauta</li>
+						<li>Andrés Felipe Suárez Rodríguez</li>
+						<li>UMNG</li>
+						<li>Imaginatio</li>
+						<li>Endava</li>
+					</ul>
+				</div>
+			</footer>
+			<!-- Fin Footer  -->
+
+			<!-- Initialize Swiper -->
+			<script>
+				$(document).ready(function(){
+				var swiper = new Swiper('.homeslider > .swiper-container', {
+						pagination: '.swiper-pagination',
+						nextButton: '.home-next',
+						prevButton: '.home-prev',
+						paginationClickable: true,
+						preventClicks:false,
+						preventClicksPropagation:false,
+						effect:'fade',
+				    loop: true,
+						autoplay: 2500,
+						breakpoints: {
+							320: {
+								height:200
+							},
+							480: {
+								height:300
+							},
+							768: {
+								height:400
+							},
+							1024: {
+								height:500
+							}
+						}
+					});
+					var recentswiper = new Swiper('.recentslider > .swiper-container', {
+						pagination: '.swiper-pagination',
+						nextButton: '.recent-next',
+						prevButton: '.recent-prev',
+						slidesPerView: 8,
+						paginationClickable: true,
+						preventClicks:false,
+						preventClicksPropagation:false,
+						spaceBetween: 10,
+						loop: true,
+						breakpoints: {
+							320: {
+								slidesPerView: 3,
+								spaceBetween: 5
+							},
+							480: {
+								slidesPerView: 3,
+								spaceBetween: 5
+							},
+							768: {
+								slidesPerView: 5,
+								spaceBetween: 5
+							},
+							1024: {
+								slidesPerView: 6,
+								spaceBetween: 10
+							}
+						}
+					});
+
+					var mostswiper = new Swiper('.mostslider > .swiper-container', {
+						nextButton: '.most-next',
+						prevButton: '.most-prev',
+						slidesPerView: 8,
+						paginationClickable: true,
+						preventClicks:false,
+						preventClicksPropagation:false,
+						spaceBetween: 10,
+						breakpoints: {
+							320: {
+								slidesPerView: 3,
+								spaceBetween: 5
+							},
+							480: {
+								slidesPerView: 3,
+								spaceBetween: 5
+							},
+							768: {
+								slidesPerView: 5,
+								spaceBetween: 5
+							},
+							1024: {
+								slidesPerView: 6,
+								spaceBetween: 10
+							}
+						}
+					});
+
+					var topswiper = new Swiper('.topslider > .swiper-container', {
+						nextButton: '.top-next',
+						prevButton: '.top-prev',
+						slidesPerView: 8,
+						paginationClickable: true,
+						preventClicks:false,
+						preventClicksPropagation:false,
+						spaceBetween: 10,
+						breakpoints: {
+							320: {
+								slidesPerView: 3,
+								spaceBetween: 5
+							},
+							480: {
+								slidesPerView: 3,
+								spaceBetween: 5
+							},
+							768: {
+								slidesPerView: 5,
+								spaceBetween: 5
+							},
+							1024: {
+								slidesPerView: 6,
+								spaceBetween: 10
+							}
+						}
+					});
+				});
+			</script>
+		</div>
+
+		<script>
+			setTimeout(function(){
+				$('.loader_bg').fadeToggle();
+			},200);
+		</script>
+	</body>
+</html>
