@@ -1,3 +1,12 @@
+Reto realizado para concurso de Endava UMNG.
+Las tecnologías usadas fueron: HTML - CSS - JavaScript
+Roles:  Danna Valeria Amaya Acosta - Desarrolladora Back
+        Jean Carlos Polo Castro - Desarrollador Back
+        Nicolás Sierra Chauta - Diseñador UI / Desarrollador Front
+        Andrés Felipe Suárez Rodríguez - Desarrollador Front
+
+
+
 Summary
 =======
 
